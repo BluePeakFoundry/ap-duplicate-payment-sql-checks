@@ -10,6 +10,7 @@ Use it on your own authorized exports only. Do not paste supplier contracts, ban
 - `sample/sample_ap_export.csv` — synthetic sample data for testing the queries.
 - `tests/run_checks.py` — local test runner that imports the sample into SQLite and verifies expected findings.
 - `index.html` — public documentation page for GitHub Pages.
+- `.github/ISSUE_TEMPLATE/ap-sql-review.yml` — sanitized public feedback form for false positives, missing patterns and portability notes.
 
 ## Review patterns
 
@@ -18,6 +19,13 @@ Use it on your own authorized exports only. Do not paste supplier contracts, ban
 3. Paid rows with credit, cancelled, void or refund status markers, or negative amounts.
 
 These checks produce review leads, not proof of overpayment or entitlement to a refund. Review results manually before contacting any supplier.
+
+## Safe feedback
+
+Use the public feedback form only for sanitized examples and generalized column names:
+https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/issues/new?template=ap-sql-review.yml
+
+Do not post supplier names, bank details, tax IDs, account numbers, payment references, invoice images, contracts, personal data or confidential vendor information.
 
 ## Run locally
 

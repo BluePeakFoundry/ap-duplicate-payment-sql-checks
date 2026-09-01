@@ -1,0 +1,47 @@
+name: AP SQL check feedback
+description: Share sanitized feedback about the duplicate-payment SQL checks.
+title: "AP SQL feedback: "
+labels: ["ap-sql-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reviewing the AP Duplicate Payment SQL Checks.
+
+        Safety first: do not post supplier names, bank details, account numbers, tax IDs, invoice images, contracts, payment references, personal data, or confidential vendor information. Use only synthetic examples or generalized column names.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data safety confirmation
+      options:
+        - label: I have removed supplier names, bank details, tax IDs, account numbers, payment references, invoice images, contracts, personal data, and confidential vendor information.
+          required: true
+  - type: dropdown
+    id: feedback_type
+    attributes:
+      label: What are you sharing?
+      options:
+        - False positive in one of the checks
+        - Missing duplicate-payment pattern
+        - Portability issue with SQLite or another SQL engine
+        - Documentation improvement
+        - Other sanitized feedback
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Sanitized context
+      description: Describe the pattern using generalized column names and synthetic values only.
+      placeholder: >-
+        Two rows share normalized invoice number, vendor_id pattern, currency and amount,
+        but one status field contains a reversal marker.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected review outcome
+      description: What should the starter query flag or ignore?
+    validations:
+      required: false

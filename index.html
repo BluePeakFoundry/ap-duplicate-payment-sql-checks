@@ -23,6 +23,7 @@
       <p>
         <a class="button" data-analytics-event="download:ap-sql" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/releases/latest/download/ap_duplicate_payment_checks.sql">Download SQL</a>
         <a class="button secondary" data-analytics-event="repo:ap-sql" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks">View repository</a>
+        <a class="button secondary" data-analytics-event="lead:ap-sql-review" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/issues/new?template=ap-sql-review.yml">Share sanitized SQL feedback</a>
       </p>
       <p class="warn">Use only with data you are authorized to review. Do not upload or share supplier names, bank details, invoices, contracts, personal data or account identifiers in public systems. Findings are review leads, not proof of overpayment.</p>
     </section>
@@ -34,6 +35,10 @@
     <section class="card">
       <h2>Run the test sample</h2>
       <p>Clone the repository and run <code>python3 tests/run_checks.py</code>. The included CSV is synthetic and safe for local verification.</p>
+    </section>
+    <section class="card">
+      <h2>Safe feedback channel</h2>
+      <p>If a check misses a pattern or creates a false positive, open the <a data-analytics-event="lead:ap-sql-review" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/issues/new?template=ap-sql-review.yml">sanitized AP SQL feedback form</a>. Use only synthetic examples or generalized column names; do not post supplier names, bank details, tax IDs, invoice images, contracts, personal data or confidential vendor information.</p>
     </section>
   </main>
   <script src="analytics.js" defer></script>
