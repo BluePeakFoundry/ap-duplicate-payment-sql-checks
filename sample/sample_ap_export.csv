@@ -1,0 +1,7 @@
+vendor_id,vendor_name,invoice_number,invoice_date,due_date,payment_date,amount,currency,payment_reference,status
+V-100,Acme Supplies,INV-1001,2026-07-01,2026-07-31,2026-07-15,1200.00,EUR,PAY-001,Paid
+V-100,Acme Supplies,INV 1001,2026-07-01,2026-07-31,2026-07-16,1200.00,EUR,PAY-002,Paid
+V-200,Northwind Services,NS-778,2026-07-05,2026-08-04,2026-07-20,480.50,EUR,PAY-003,Paid
+V-200,Northwind Services,NS-779,2026-07-05,2026-08-04,2026-07-20,480.50,EUR,PAY-004,Paid
+V-300,Contoso Hardware,CR-55,2026-07-07,2026-08-06,2026-07-22,-75.00,EUR,PAY-005,Credit memo paid
+V-400,Fabrikam Office,FO-330,2026-07-12,2026-08-11,2026-07-28,300.00,EUR,PAY-006,Paid

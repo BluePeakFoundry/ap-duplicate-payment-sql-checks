@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bluepeakfoundry.github.io/ap-duplicate-payment-sql-checks/sitemap.xml

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AP Duplicate Payment SQL Checks | Blue Peak Foundry</title>
+  <meta name="description" content="Free SQLite starter queries for reviewing duplicate invoice payments and AP refund leakage in authorized accounts-payable exports.">
+  <link rel="canonical" href="https://bluepeakfoundry.github.io/ap-duplicate-payment-sql-checks/">
+  <meta name="robots" content="index,follow">
+  <style>
+    :root{color-scheme:light dark;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;color:#172033;background:#f8fafc}body{margin:0}main{max-width:920px;margin:0 auto;padding:48px 22px}.hero{background:#fff;border:1px solid #dbe3ef;border-radius:20px;padding:32px;box-shadow:0 18px 50px rgba(15,23,42,.08)}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;margin:.2rem 0 1rem}.tag{color:#0f766e;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}.card{background:#fff;border:1px solid #dbe3ef;border-radius:16px;padding:20px}.button{display:inline-block;background:#0f766e;color:#fff;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700;margin-right:10px;margin-top:8px}.secondary{background:#334155}.warn{background:#fff7ed;border-left:4px solid #f97316;padding:14px 16px;border-radius:10px}code{background:#e2e8f0;padding:.15rem .35rem;border-radius:.35rem}@media (prefers-color-scheme:dark){:root{color:#e5edf7;background:#0f172a}.hero,.card{background:#111827;border-color:#334155}.warn{background:#292012}code{background:#1f2937}}
+  </style>
+  <script data-goatcounter="https://bluepeakfoundry.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"AP Duplicate Payment SQL Checks","codeRepository":"https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks","programmingLanguage":"SQL","license":"https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/blob/main/LICENSE","isAccessibleForFree":true}</script>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <p class="tag">Free AP review starter</p>
+      <h1>AP Duplicate Payment SQL Checks</h1>
+      <p>SQLite-compatible checks for finance, internal audit and data teams reviewing authorized accounts-payable exports for duplicate invoice payments, same-day same-amount payments and credit/cancelled markers.</p>
+      <p>
+        <a class="button" data-analytics-event="download:ap-sql" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/releases/latest/download/ap_duplicate_payment_checks.sql">Download SQL</a>
+        <a class="button secondary" data-analytics-event="repo:ap-sql" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks">View repository</a>
+      </p>
+      <p class="warn">Use only with data you are authorized to review. Do not upload or share supplier names, bank details, invoices, contracts, personal data or account identifiers in public systems. Findings are review leads, not proof of overpayment.</p>
+    </section>
+    <section class="grid" aria-label="Included checks">
+      <article class="card"><h2>Duplicate invoice keys</h2><p>Normalizes invoice numbers and groups by vendor, currency and amount to surface repeated payments.</p></article>
+      <article class="card"><h2>Same-day same-amount</h2><p>Finds repeated vendor payments on the same invoice date even when invoice numbers differ.</p></article>
+      <article class="card"><h2>Credit or cancelled markers</h2><p>Flags paid rows with credit, cancelled, void or refund terms, plus negative amounts.</p></article>
+    </section>
+    <section class="card">
+      <h2>Run the test sample</h2>
+      <p>Clone the repository and run <code>python3 tests/run_checks.py</code>. The included CSV is synthetic and safe for local verification.</p>
+    </section>
+  </main>
+  <script src="analytics.js" defer></script>
+</body>
+</html>
