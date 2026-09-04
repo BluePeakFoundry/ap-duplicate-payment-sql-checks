@@ -23,6 +23,7 @@
       <p>
         <a class="button" data-analytics-event="download:ap-sql" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/releases/latest/download/ap_duplicate_payment_checks.sql">Download SQL</a>
         <a class="button secondary" data-analytics-event="repo:ap-sql" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks">View repository</a>
+        <a class="button secondary" data-analytics-event="action:ap-csv-audit" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/releases/tag/v0.2.0-csv-audit-action">Use GitHub Action</a>
         <a class="button secondary" data-analytics-event="lead:ap-sql-review" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/issues/new?template=ap-sql-review.yml">Share sanitized SQL feedback</a>
       </p>
       <p class="warn">Use only with data you are authorized to review. Do not upload or share supplier names, bank details, invoices, contracts, personal data or account identifiers in public systems. Findings are review leads, not proof of overpayment.</p>
@@ -34,7 +35,12 @@
     </section>
     <section class="card">
       <h2>Run the test sample</h2>
-      <p>Clone the repository and run <code>python3 tests/run_checks.py</code>. The included CSV is synthetic and safe for local verification.</p>
+      <p>Clone the repository and run <code>python3 tests/run_checks.py</code> or <code>python3 scripts/audit_duplicate_payments.py examples/invoices.csv --output artifacts/sample-audit.json</code>. The included CSV is synthetic and safe for local verification.</p>
+    </section>
+    <section class="card">
+      <h2>Run it in GitHub Actions</h2>
+      <p>The repository includes a Marketplace-compatible action for scheduled or manual checks on authorized, sanitized CSV exports. Use <code>BluePeakFoundry/ap-duplicate-payment-sql-checks@v0.2.0-csv-audit-action</code> with <code>csv-path</code>, <code>output-path</code> and <code>fail-on-findings</code>.</p>
+      <p>Never commit live supplier, banking, tax, invoice, account, personal or confidential information to a repository.</p>
     </section>
     <section class="card">
       <h2>Safe feedback channel</h2>

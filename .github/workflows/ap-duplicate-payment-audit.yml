@@ -1,0 +1,29 @@
+name: AP duplicate payment audit example
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'action.yml'
+      - 'scripts/audit_duplicate_payments.py'
+      - 'sql/ap_duplicate_payment_checks.sql'
+      - 'examples/invoices.csv'
+      - '.github/workflows/ap-duplicate-payment-audit.yml'
+
+jobs:
+  sample-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run AP duplicate-payment audit action on synthetic sample
+        id: audit
+        uses: ./
+        with:
+          csv-path: examples/invoices.csv
+          output-path: artifacts/sample-audit.json
+          fail-on-findings: 'false'
+      - name: Verify sample findings count
+        shell: bash
+        run: |
+          test "${{ steps.audit.outputs.findings-count }}" = "4"
+          python3 -m json.tool artifacts/sample-audit.json >/dev/null

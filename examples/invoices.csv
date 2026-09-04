@@ -1,0 +1,7 @@
+vendor_id,vendor_name,invoice_number,invoice_date,due_date,payment_date,amount,currency,payment_reference,status
+V-100,Northwind Office,INV-1042,2026-08-01,2026-08-31,2026-08-15,1200.00,EUR,PAY-001,paid
+V-100,Northwind Office,INV 1042,2026-08-01,2026-08-31,2026-08-18,1200.00,EUR,PAY-002,paid
+V-200,Contoso Logistics,SHIP-77,2026-08-03,2026-09-02,2026-08-20,450.00,EUR,PAY-003,paid
+V-200,Contoso Logistics,SHIP-78,2026-08-03,2026-09-02,2026-08-20,450.00,EUR,PAY-004,paid
+V-300,Fabrikam Supplies,CR-900,2026-08-05,2026-09-04,2026-08-21,-89.00,EUR,PAY-005,credit memo paid
+V-400,Alpine Services,AS-19,2026-08-06,2026-09-05,2026-08-22,310.00,EUR,PAY-006,paid

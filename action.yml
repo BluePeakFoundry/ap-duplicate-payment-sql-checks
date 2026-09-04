@@ -1,0 +1,32 @@
+name: 'AP Duplicate Payment CSV Audit'
+description: 'Review authorized accounts-payable CSV exports for duplicate-payment leads with SQLite checks.'
+author: 'Blue Peak Foundry'
+branding:
+  icon: 'search'
+  color: 'teal'
+inputs:
+  csv-path:
+    description: 'Path to an authorized AP export CSV with the documented columns.'
+    required: true
+  output-path:
+    description: 'Path where the JSON audit report should be written.'
+    required: false
+    default: 'ap-duplicate-payment-audit.json'
+  fail-on-findings:
+    description: 'Set to true to fail the workflow when review leads are found.'
+    required: false
+    default: 'false'
+outputs:
+  findings-count:
+    description: 'Number of review-lead groups found.'
+    value: ${{ steps.audit.outputs.findings-count }}
+  report-path:
+    description: 'Path to the JSON audit report.'
+    value: ${{ steps.audit.outputs.report-path }}
+runs:
+  using: 'composite'
+  steps:
+    - id: audit
+      shell: bash
+      run: |
+        python3 "$GITHUB_ACTION_PATH/scripts/audit_duplicate_payments.py" "${{ inputs.csv-path }}" --output "${{ inputs.output-path }}" --fail-on-findings "${{ inputs.fail-on-findings }}"

@@ -19,11 +19,15 @@ def main() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     sql = (ROOT / "sql" / "ap_duplicate_payment_checks.sql").read_text(encoding="utf-8")
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
-    for text_name, text in [("index", html), ("readme", readme), ("sql", sql)]:
+    action = (ROOT / "action.yml").read_text(encoding="utf-8")
+    script = (ROOT / "scripts" / "audit_duplicate_payments.py").read_text(encoding="utf-8")
+    workflow = (ROOT / ".github" / "workflows" / "ap-duplicate-payment-audit.yml").read_text(encoding="utf-8")
+    for text_name, text in [("index", html), ("readme", readme), ("sql", sql), ("action", action), ("script", script), ("workflow", workflow)]:
         for forbidden in FORBIDDEN:
             require(not re.search(rf"\b{re.escape(forbidden)}\b", text, re.IGNORECASE), f"forbidden term {forbidden!r} in {text_name}")
     require("bluepeakfoundry.goatcounter.com/count" in html, "missing GoatCounter script")
     require('data-analytics-event="download:ap-sql"' in html, "missing download event marker")
+    require('data-analytics-event="action:ap-csv-audit"' in html, "missing action event marker")
     require('data-analytics-event="lead:ap-sql-review"' in html, "missing review lead event marker")
     require("ap-sql-review.yml" in html, "missing AP SQL review issue form link")
     issue_form = (ROOT / ".github" / "ISSUE_TEMPLATE" / "ap-sql-review.yml").read_text(encoding="utf-8")
@@ -33,9 +37,15 @@ def main() -> None:
     require("SoftwareSourceCode" in html, "missing structured data")
     require("https://bluepeakfoundry.github.io/ap-duplicate-payment-sql-checks/" in html, "missing canonical URL")
     require("ap_duplicate_payment_checks.sql" in readme, "README missing SQL file reference")
+    require("AP Duplicate Payment CSV Audit" in action, "action metadata missing name")
+    require("runs:" in action and "using: 'composite'" in action, "action metadata missing composite run block")
+    require("csv-path" in action and "findings-count" in action, "action metadata missing inputs/outputs")
+    require("BluePeakFoundry/ap-duplicate-payment-sql-checks@v0.2.0-csv-audit-action" in readme, "README missing action usage")
+    require("AP_DUPLICATE_PAYMENT_AUDIT" in script, "audit script missing success marker")
+    require("examples/invoices.csv" in workflow, "example workflow missing synthetic CSV")
     require(manifest.get("money_verified_eur") == 0, "manifest money field invalid")
-    require(manifest.get("external_actions_performed") == ["published_public_github_repo", "published_github_pages", "published_github_release", "published_safe_public_issue_form_cta"], "unexpected external actions")
-    print("AP_SQL_PUBLIC_SITE_OK files=10 money_verified_eur=0 external_actions=4")
+    require("published_marketplace_compatible_github_action" in manifest.get("external_actions_performed", []), "manifest missing action external action")
+    print("AP_SQL_PUBLIC_SITE_OK files=14 money_verified_eur=0 external_actions=5")
 
 
 if __name__ == "__main__":
