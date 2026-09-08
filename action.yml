@@ -1,5 +1,5 @@
 name: 'AP Duplicate Payment CSV Audit'
-description: 'Review authorized accounts-payable CSV exports for duplicate-payment leads with SQLite checks.'
+description: 'Audit authorized accounts-payable CSV exports for duplicate invoices, same-day repeats and credit markers.'
 author: 'Blue Peak Foundry'
 branding:
   icon: 'search'
@@ -13,7 +13,7 @@ inputs:
     required: false
     default: 'ap-duplicate-payment-audit.json'
   fail-on-findings:
-    description: 'Set to true to fail the workflow when review leads are found.'
+    description: 'Set to true to fail the workflow when duplicate-payment review groups are found.'
     required: false
     default: 'false'
 outputs:

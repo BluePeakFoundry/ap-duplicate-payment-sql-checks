@@ -23,7 +23,7 @@
       <p>
         <a class="button" data-analytics-event="download:ap-sql" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/releases/latest/download/ap_duplicate_payment_checks.sql">Download SQL</a>
         <a class="button secondary" data-analytics-event="repo:ap-sql" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks">View repository</a>
-        <a class="button secondary" data-analytics-event="action:ap-csv-audit" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/releases/tag/v0.2.0-csv-audit-action">Use GitHub Action</a>
+        <a class="button secondary" data-analytics-event="action:ap-csv-audit" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/releases/tag/v0.2.1-marketplace-ready">Use GitHub Action</a>
         <a class="button secondary" data-analytics-event="lead:ap-sql-review" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/issues/new?template=ap-sql-review.yml">Share sanitized SQL feedback</a>
       </p>
       <p class="warn">Use only with data you are authorized to review. Do not upload or share supplier names, bank details, invoices, contracts, personal data or account identifiers in public systems. Findings are review leads, not proof of overpayment.</p>
@@ -39,7 +39,8 @@
     </section>
     <section class="card">
       <h2>Run it in GitHub Actions</h2>
-      <p>The repository includes a Marketplace-compatible action for scheduled or manual checks on authorized, sanitized CSV exports. Use <code>BluePeakFoundry/ap-duplicate-payment-sql-checks@v0.2.0-csv-audit-action</code> with <code>csv-path</code>, <code>output-path</code> and <code>fail-on-findings</code>.</p>
+      <p>The repository includes a release-ready GitHub Action for scheduled or manual checks on authorized, sanitized CSV exports. Use <code>BluePeakFoundry/ap-duplicate-payment-sql-checks@v0.2.1-marketplace-ready</code> with <code>csv-path</code>, <code>output-path</code> and <code>fail-on-findings</code>.</p>
+      <p>The action outputs <code>findings-count</code> and <code>report-path</code> so teams can archive a private JSON review queue inside their own workflow run.</p>
       <p>Never commit live supplier, banking, tax, invoice, account, personal or confidential information to a repository.</p>
     </section>
     <section class="card">

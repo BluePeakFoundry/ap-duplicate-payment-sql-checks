@@ -2,7 +2,7 @@
   "name": "ap-duplicate-payment-sql-checks",
   "public_url": "https://bluepeakfoundry.github.io/ap-duplicate-payment-sql-checks/",
   "repository": "https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks",
-  "version": "v0.2.0-csv-audit-action",
+  "version": "v0.2.1-marketplace-ready",
   "money_verified_eur": 0,
   "requires_private_data": false,
   "external_actions_performed": [
@@ -10,7 +10,8 @@
     "published_github_pages",
     "published_github_release",
     "published_safe_public_issue_form_cta",
-    "published_marketplace_compatible_github_action"
+    "published_marketplace_compatible_github_action",
+    "published_action_release_with_inputs_outputs_docs"
   ],
   "verification_commands": [
     "python3 tests/run_checks.py",

@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: BluePeakFoundry/ap-duplicate-payment-sql-checks@v0.2.0-csv-audit-action
+      - uses: BluePeakFoundry/ap-duplicate-payment-sql-checks@v0.2.1-marketplace-ready
         with:
           csv-path: examples/invoices.csv
           output-path: artifacts/ap-audit.json
@@ -57,6 +57,21 @@ jobs:
 ```
 
 Use authorized, sanitized exports only. Do not commit live supplier, banking, tax, invoice, account, personal or confidential information to a repository.
+
+### Inputs and outputs
+
+Inputs:
+
+- `csv-path` (required): path to an authorized CSV export with the documented columns.
+- `output-path` (optional): JSON report destination; defaults to `ap-duplicate-payment-audit.json`.
+- `fail-on-findings` (optional): set to `'true'` to fail the workflow when review groups are found.
+
+Outputs:
+
+- `findings-count`: number of duplicate-payment review groups in the JSON report.
+- `report-path`: path to the generated JSON report.
+
+The report is designed for internal triage. It should not be treated as proof of overpayment, refund entitlement or supplier error without manual review.
 
 ## Columns expected
 
