@@ -12,7 +12,8 @@
     "published_safe_public_issue_form_cta",
     "published_marketplace_compatible_github_action",
     "published_action_release_with_inputs_outputs_docs",
-    "published_sanitized_ap_service_scope_cta"
+    "published_sanitized_ap_service_scope_cta",
+    "published_ap_review_use_case_landing_path"
   ],
   "verification_commands": [
     "python3 tests/run_checks.py",

@@ -24,6 +24,7 @@
         <a class="button" data-analytics-event="download:ap-sql" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/releases/latest/download/ap_duplicate_payment_checks.sql">Download SQL</a>
         <a class="button secondary" data-analytics-event="repo:ap-sql" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks">View repository</a>
         <a class="button secondary" data-analytics-event="action:ap-csv-audit" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/releases/tag/v0.2.1-marketplace-ready">Use GitHub Action</a>
+        <a class="button secondary" data-analytics-event="usecase:ap-review" href="#ap-review-use-cases">Review use cases</a>
         <a class="button secondary" data-analytics-event="lead:ap-sql-review" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/issues/new?template=ap-sql-review.yml">Share sanitized SQL feedback</a>
         <a class="button secondary" data-analytics-event="lead:ap-service-scope" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/issues/new?template=ap-service-scope.yml">Request sanitized service scope</a>
       </p>
@@ -43,6 +44,16 @@
       <p>The repository includes a release-ready GitHub Action for scheduled or manual checks on authorized, sanitized CSV exports. Use <code>BluePeakFoundry/ap-duplicate-payment-sql-checks@v0.2.1-marketplace-ready</code> with <code>csv-path</code>, <code>output-path</code> and <code>fail-on-findings</code>.</p>
       <p>The action outputs <code>findings-count</code> and <code>report-path</code> so teams can archive a private JSON review queue inside their own workflow run.</p>
       <p>Never commit live supplier, banking, tax, invoice, account, personal or confidential information to a repository.</p>
+    </section>
+    <section id="ap-review-use-cases" class="card">
+      <h2>AP review use cases</h2>
+      <p>Use the starter kit when an authorized export needs a quick first pass for duplicate invoice keys, same-vendor same-day payments, credit markers or private workflow planning.</p>
+      <ul>
+        <li>Month-end AP duplicate invoice checks on sanitized CSV exports.</li>
+        <li>Internal audit sampling before manual supplier review.</li>
+        <li>Finance operations triage before adapting rules to NetSuite, SAP, Oracle, QuickBooks or a generic ledger export.</li>
+      </ul>
+      <p><a data-analytics-event="download:ap-use-case-sql" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/releases/latest/download/ap_duplicate_payment_checks.sql">Download the SQL starter</a> or <a data-analytics-event="lead:ap-use-case-scope" href="https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/issues/new?template=ap-service-scope.yml">request sanitized workflow scoping</a>. Share only generalized column names, approximate row counts and synthetic examples in public.</p>
     </section>
     <section class="card">
       <h2>Safe feedback channel</h2>

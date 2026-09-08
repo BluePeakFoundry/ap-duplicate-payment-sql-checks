@@ -28,6 +28,9 @@ def main() -> None:
     require("bluepeakfoundry.goatcounter.com/count" in html, "missing GoatCounter script")
     require('data-analytics-event="download:ap-sql"' in html, "missing download event marker")
     require('data-analytics-event="action:ap-csv-audit"' in html, "missing action event marker")
+    require('data-analytics-event="usecase:ap-review"' in html, "missing AP review use-case event marker")
+    require('data-analytics-event="download:ap-use-case-sql"' in html, "missing AP use-case download event marker")
+    require('data-analytics-event="lead:ap-use-case-scope"' in html, "missing AP use-case scope event marker")
     require('data-analytics-event="lead:ap-sql-review"' in html, "missing review lead event marker")
     require('data-analytics-event="lead:ap-service-scope"' in html, "missing service-scope lead event marker")
     require("ap-sql-review.yml" in html, "missing AP SQL review issue form link")
@@ -49,6 +52,8 @@ def main() -> None:
     require("runs:" in action and "using: 'composite'" in action, "action metadata missing composite run block")
     require("csv-path" in action and "findings-count" in action, "action metadata missing inputs/outputs")
     require("BluePeakFoundry/ap-duplicate-payment-sql-checks@v0.2.1-marketplace-ready" in readme, "README missing action usage")
+    require("Common AP review use cases" in readme, "README missing AP use-case section")
+    require("NetSuite, SAP, Oracle, QuickBooks" in html, "HTML missing ERP use-case keywords")
     require("findings-count" in html and "report-path" in html, "HTML missing action output names")
     require("published_action_release_with_inputs_outputs_docs" in manifest.get("external_actions_performed", []), "manifest missing action docs release marker")
     require("AP_DUPLICATE_PAYMENT_AUDIT" in script, "audit script missing success marker")
@@ -56,7 +61,8 @@ def main() -> None:
     require(manifest.get("money_verified_eur") == 0, "manifest money field invalid")
     require("published_marketplace_compatible_github_action" in manifest.get("external_actions_performed", []), "manifest missing action external action")
     require("published_sanitized_ap_service_scope_cta" in manifest.get("external_actions_performed", []), "manifest missing service-scope CTA marker")
-    print("AP_SQL_PUBLIC_SITE_OK files=15 money_verified_eur=0 external_actions=6")
+    require("published_ap_review_use_case_landing_path" in manifest.get("external_actions_performed", []), "manifest missing AP use-case landing path marker")
+    print(f"AP_SQL_PUBLIC_SITE_OK files=15 money_verified_eur=0 external_actions={len(manifest.get('external_actions_performed', []))}")
 
 
 if __name__ == "__main__":

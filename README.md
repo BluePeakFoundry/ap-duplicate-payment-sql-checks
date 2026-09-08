@@ -38,6 +38,17 @@ https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/issues/new?te
 
 Share only generalized column names, approximate row counts and synthetic examples. Do not post live supplier, banking, tax, invoice, account, customer, personal or confidential information. A public issue request is not a contract, refund guarantee or proof of overpayment.
 
+## Common AP review use cases
+
+This starter kit is intended for teams that already have an authorized AP export and want a quick, auditable first pass before any private review:
+
+- Month-end duplicate invoice checks on sanitized CSV exports.
+- Internal audit sampling for repeated same-vendor, same-date, same-amount payments.
+- Finance operations triage before adapting rules to an ERP export.
+- Private workflow planning for NetSuite, SAP, Oracle, QuickBooks or generic ledger CSV extracts.
+
+Start with the synthetic sample and the release download, then use the sanitized service-scope form if you need help mapping generalized columns or planning a private workflow. Do not upload real vendor, banking, tax, invoice, account, customer, personal or confidential information to a public repository.
+
 ## Run locally
 
 ```bash
