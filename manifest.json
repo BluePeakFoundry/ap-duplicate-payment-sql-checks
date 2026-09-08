@@ -11,12 +11,14 @@
     "published_github_release",
     "published_safe_public_issue_form_cta",
     "published_marketplace_compatible_github_action",
-    "published_action_release_with_inputs_outputs_docs"
+    "published_action_release_with_inputs_outputs_docs",
+    "published_sanitized_ap_service_scope_cta"
   ],
   "verification_commands": [
     "python3 tests/run_checks.py",
     "python3 scripts/audit_duplicate_payments.py examples/invoices.csv --output artifacts/sample-audit.json",
     "python3 validate_public_site.py",
-    "python3 -m json.tool manifest.json"
+    "python3 -m json.tool manifest.json",
+    "ruby scripts/validate_yaml.rb"
   ]
 }

@@ -14,6 +14,7 @@ Use it on your own authorized exports only. Do not paste supplier contracts, ban
 - `examples/invoices.csv` — synthetic workflow sample for the action.
 - `index.html` — public documentation page for GitHub Pages.
 - `.github/ISSUE_TEMPLATE/ap-sql-review.yml` — sanitized public feedback form for false positives, missing patterns and portability notes.
+- `.github/ISSUE_TEMPLATE/ap-service-scope.yml` — sanitized public service-scope request form for authorized AP CSV review planning.
 
 ## Review patterns
 
@@ -29,6 +30,13 @@ Use the public feedback form only for sanitized examples and generalized column 
 https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/issues/new?template=ap-sql-review.yml
 
 Do not post supplier names, bank details, tax IDs, account numbers, payment references, invoice images, contracts, personal data or confidential vendor information.
+
+## Sanitized service-scope requests
+
+If you need help adapting the checks to an authorized AP CSV export or a private workflow, use the sanitized service-scope form:
+https://github.com/BluePeakFoundry/ap-duplicate-payment-sql-checks/issues/new?template=ap-service-scope.yml
+
+Share only generalized column names, approximate row counts and synthetic examples. Do not post live supplier, banking, tax, invoice, account, customer, personal or confidential information. A public issue request is not a contract, refund guarantee or proof of overpayment.
 
 ## Run locally
 

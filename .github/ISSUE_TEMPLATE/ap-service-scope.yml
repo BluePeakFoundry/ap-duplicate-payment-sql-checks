@@ -1,0 +1,56 @@
+name: AP CSV review service scope
+description: Request a sanitized scope review for an authorized AP duplicate-payment CSV audit.
+title: "AP CSV review scope: "
+labels: ["ap-service-scope"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this sanitized service-scope form to request a review for an authorized AP duplicate-payment CSV audit.
+
+        Safety first: do not post supplier names, bank details, account numbers, tax IDs, invoice images, contracts, payment references, personal data, live invoices, customer records, or confidential vendor information. Use only generalized column names, approximate row counts and synthetic examples.
+
+        This request does not create a contract, guarantee a refund, prove an overpayment, or require payment details. Any commercial engagement would need a separate written agreement through an authorized channel.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data safety confirmation
+      options:
+        - label: I have removed supplier names, bank details, tax IDs, account numbers, payment references, invoice images, contracts, personal data, live invoices, customer records, and confidential vendor information.
+          required: true
+  - type: dropdown
+    id: scope_type
+    attributes:
+      label: What do you want scoped?
+      options:
+        - Adapting the CSV audit to existing AP export columns
+        - Reviewing duplicate-payment patterns before an internal audit
+        - Turning the starter checks into a private GitHub Actions workflow
+        - Sanitized false-positive review for a sample pattern
+        - Other authorized AP duplicate-payment review scope
+    validations:
+      required: true
+  - type: input
+    id: system_context
+    attributes:
+      label: General AP export context
+      description: Keep this generic. Mention only system type or export shape, not vendor names or confidential details.
+      placeholder: "CSV export from an ERP/AP module, roughly 20 columns and 50k rows"
+    validations:
+      required: true
+  - type: textarea
+    id: columns
+    attributes:
+      label: Generalized column names available
+      description: List sanitized column names only. Do not include real values, supplier names, bank details, tax IDs, references, invoices, account numbers or personal data.
+      placeholder: "vendor_id, invoice_number, invoice_date, payment_date, amount, currency, status"
+    validations:
+      required: true
+  - type: textarea
+    id: desired_outcome
+    attributes:
+      label: Desired internal review outcome
+      description: Describe the internal decision or workflow you want to support. Do not claim a guaranteed refund or entitlement.
+      placeholder: "Produce a private JSON review queue that internal AP staff can manually verify before any supplier contact."
+    validations:
+      required: true
